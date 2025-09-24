@@ -10,15 +10,9 @@ export default async function (req, res) {
   let token = req.headers.get('Authorization')
 
   if (!token) {
-    return new Response('no token', {
-      status: 400,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: 'no_token'
-      })
-    })
+    return _res.json({
+      message: 'no_token'
+    }, 400)
   }
 
   let user = await fetch(endpoint, {
@@ -29,24 +23,13 @@ export default async function (req, res) {
   })
 
   if (user.status !== 200) {
-    return new Response(user.statusText, {
-      status: user.status,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        message: 'github_error',
-        detail: user.statusText
-      })
-    })
+    return _res.json({
+      message: 'github_error',
+      detail: user.statusText
+    }, user.status)
   }
 
   let user_json = await user.json()
 
-  return new Response(JSON.stringify(user_json), {
-    status: 200,
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
+  return _res.json(user_json)
 }

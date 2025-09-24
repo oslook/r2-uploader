@@ -315,7 +315,7 @@ let deleteMyData = async function () {
 
 let loginEndpoint = 'https://github.com/login/oauth/authorize'
 let scope = 'public_repo'
-let redirect_uri = 'https://r2.jw1.dev/api/auth_callback'
+let redirect_uri = 'https://r2.uuid.site/api/auth_callback'
 let goBackURL = `${location.protocol}//${location.host}`
 goBackURL = encodeURIComponent(goBackURL)
 redirect_uri += `?r=${goBackURL}`

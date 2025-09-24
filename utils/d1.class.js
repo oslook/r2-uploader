@@ -19,7 +19,8 @@ export default class D1 {
         _body.bind = bind
       }
 
-      const res = await fetch('https://d1.jw1.dev/r2_jw1dev', {
+      // todo
+      const res = await fetch('https://d1.uuid.site/r2_jw1dev', {
         method: 'POST',
         headers: {
           Authorization: 'Bearer ' + this.key

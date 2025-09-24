@@ -35,10 +35,10 @@ export default async function (req) {
   })
 
   if (user.status !== 200) {
-    return res.status(user.status).json({
+    return _res.json({
       message: 'github_error',
       detail: user.statusText
-    })
+    }, user.status)
   }
 
   let user_json = await user.json()
