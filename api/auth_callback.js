@@ -32,7 +32,7 @@ export default async function (req, res) {
   }
 
   if (!redirect) {
-    redirect = 'https://r2.jw1.dev'
+    redirect = '/'
   }
 
   let auth_token

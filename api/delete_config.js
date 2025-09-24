@@ -36,7 +36,7 @@ export default async function (req, res) {
 
   console.log('getting user...')
 
-  let user = await fetch('https://r2.jw1.dev/api/check_github_user', {
+  let user = await fetch('/api/check_github_user', {
     method: 'GET',
     headers: {
       Authorization: token
